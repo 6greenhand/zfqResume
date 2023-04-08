@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: pink;
+        }
+        #frame{
+            position: relative;
+            width: 400px;
+            height: 300px;
+            margin: 250px auto;
+
+        }
+        .left,.right{
+            top: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+        .left{
+            left: 35px;
+        }
+        .right{
+            right: 35px;
+            z-index: -1;
+        }
+        .bottom{
+
+
+            bottom: 36px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            transform: rotate(45deg);
+            z-index: -1;
+
+        }
+        .heart{
+
+
+            position: absolute;
+            box-shadow:0 0 40px #d5093c;
+            animation: beat .8s ease infinite normal;
+            background: linear-gradient(-90deg, #F50A45 0%, #d5093c 40%);
+        }
+        @keyframes beat {
+
+
+            0%{
+
+
+                transform: scale(1) rotate(225deg);
+                box-shadow:0 0 40px #d5093c;
+            }
+            50%{
+                transform: scale(1.1) rotate(225deg);
+                box-shadow: 0 0 70px #d5093c;
+            }
+            100%{
+
+
+                transform: scale(1) rotate(225deg);
+                box-shadow: 0 0 40px #d5093c;;
+            }
+        }
+        #font1{
+            /* 深色底色，浅色文字，多层浅色文字阴影，弥散大 */
+
+            color: white;
+            text-shadow: 0px 0px 15px #00FFFF,0px 0px 15px #00FFFF,0px 0px 15px #00FFFF;
+        }
+
+    </style>
+</head>
+
+<script type="text/javascript">
+    function count(){
+        var date1= '2018/9/1 21:04:00';  //开始时间
+        var date2 = new Date();    //结束时间
+        var date3 = date2.getTime() - new Date(date1).getTime();   //时间差的毫秒数
+        //计算出相差天数
+        var days=Math.floor(date3/(24*3600*1000))
+
+        //计算出小时数
+        var leave1=date3%(24*3600*1000)    //计算天数后剩余的毫秒数
+        var hours=Math.floor(leave1/(3600*1000))
+        //计算相差分钟数
+        var leave2=leave1%(3600*1000)        //计算小时数后剩余的毫秒数
+        var minutes=Math.floor(leave2/(60*1000))
+        //计算相差秒数
+        var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
+        var seconds=Math.round(leave3/1000)
+        var str = "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+            "小pig姐姐(沈晨)，我们相识了: "+"<br>"+"<br>"+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
+            +days+" days "+hours+" hours "+minutes+" minutes ,and "+seconds+" seconds "+"<br><br>"+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+"您永远的佩奇！"
+        document.getElementById("font1").innerHTML = str
+    }
+    setInterval(count,1000)
+</script>
+
+<div id="frame">
+    <div class="heart left"></div>
+    <div class="heart right"></div>
+    <div class="heart bottom"></div>
+</div>
+<body style="background:#3B3B3B url(bg1.jpg) no-repeat center; background-size: cover;height:800px;overflow:hidden;">
+
+    <font color="#ffc0cb" id="font1"></font>
+
+</body>
+
+</html>
